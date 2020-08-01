@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">StalkerApp</string>
+    <string name="name_app">Приложение для сталкеров</string>
+    <string name="buttonEnter">Начать</string>
+    <string name="buttonBack">Назад</string>
+    <string name="character_info">персонаж: полоски здоровья, уровень радиации, артефакты, рюгзак</string>
+
+
+</resources>
