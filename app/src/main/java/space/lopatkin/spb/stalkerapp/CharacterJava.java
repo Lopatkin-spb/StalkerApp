@@ -1,5 +1,6 @@
 package space.lopatkin.spb.stalkerapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
@@ -8,11 +9,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CharacterJava extends AppCompatActivity {
 
     private static final int LAYOUT = R.layout.activity_character;
+    private Button buttonBack;
 
     //damage blood от 0 до 10
     //ввести урон для теста
@@ -37,6 +40,39 @@ public class CharacterJava extends AppCompatActivity {
 
     }
 
+
+    private void createAndShowDialogWindow() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CharacterJava.this);
+        builder.setTitle("Диалоговое окно")
+                .setMessage("Использовать предмет?")
+                .setCancelable(false)
+                .setNeutralButton("Выбросить", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+//прописать действие
+                    }
+                })
+                .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+//прописать действие
+                    }
+                })
+                .setPositiveButton("Использовать", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        try {
+                            redrawingBloodBar();
+                            redrawingRadiationBar();
+                        } catch (Exception e) {
+                        }
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
     private void aidkits() {
         final Button buttonSmallAid = (Button) findViewById(R.id.smallAid);
         final Button buttonScientificAid = (Button) findViewById(R.id.scientificAid);
@@ -47,13 +83,15 @@ public class CharacterJava extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 try {
                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                        //блокировка других аптечек во избежание одновременного нажатия
+                        //блокировка других аптечек во избежание одновременного нажатия при нажатии пальцем
                         buttonScientificAid.setEnabled(false);
                         buttonArmyAid.setEnabled(false);
                     } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                        //отрисовка жизни после отрыва пальца от картинки
                         bloodAfterDamage = bloodAfterDamage + 1;
-                        redrawingBloodBar();
+                        createAndShowDialogWindow();
                     }
+                    //разблокировка залоченных елементов
                     buttonScientificAid.setEnabled(true);
                     buttonArmyAid.setEnabled(true);
                 } catch (Exception e) {
@@ -66,13 +104,15 @@ public class CharacterJava extends AppCompatActivity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 try {
                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                        //блокировка других аптечек во избежание одновременного нажатия
+                        //блокировка других аптечек во избежание одновременного нажатия при нажатии пальцем
                         buttonScientificAid.setEnabled(false);
                         buttonSmallAid.setEnabled(false);
                     } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                        //отрисовка жизни после отрыва пальца от картинки
                         bloodAfterDamage = bloodAfterDamage + 2;
-                        redrawingBloodBar();
+                        createAndShowDialogWindow();
                     }
+                    //разблокировка залоченных елементов
                     buttonScientificAid.setEnabled(true);
                     buttonSmallAid.setEnabled(true);
                 } catch (Exception e) {
@@ -84,17 +124,17 @@ public class CharacterJava extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 try {
-
                     if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                        //блокировка других аптечек во избежание одновременного нажатия
+                        //блокировка других аптечек во избежание одновременного нажатия при нажатии пальцем
                         buttonSmallAid.setEnabled(false);
                         buttonArmyAid.setEnabled(false);
                     } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                        //отрисовка жизни после отрыва пальца от картинки
                         bloodAfterDamage = bloodAfterDamage + 3;
-                        redrawingBloodBar();
                         radiation = radiation + 4;
-                        redrawingRadiationBar();
+                        createAndShowDialogWindow();
                     }
+                    //разблокировка залоченных елементов
                     buttonSmallAid.setEnabled(true);
                     buttonArmyAid.setEnabled(true);
                 } catch (Exception e) {
@@ -160,7 +200,7 @@ public class CharacterJava extends AppCompatActivity {
 
     private void backToMainMenuButton() {
         //кнопка назад в меню
-        Button buttonBack = (Button) findViewById(R.id.buttonBack);
+        buttonBack = (Button) findViewById(R.id.buttonBack);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
