@@ -45,50 +45,60 @@ public class CharacterJava extends AppCompatActivity {
         buttonSmallAid.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    //блокировка других аптечек во избежание одновременного нажатия
-                    buttonScientificAid.setEnabled(false);
-                    buttonArmyAid.setEnabled(false);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    bloodAfterDamage = bloodAfterDamage + 1;
-                    redrawingBloodBar();
+                try {
+                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                        //блокировка других аптечек во избежание одновременного нажатия
+                        buttonScientificAid.setEnabled(false);
+                        buttonArmyAid.setEnabled(false);
+                    } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                        bloodAfterDamage = bloodAfterDamage + 1;
+                        redrawingBloodBar();
+                    }
+                    buttonScientificAid.setEnabled(true);
+                    buttonArmyAid.setEnabled(true);
+                } catch (Exception e) {
                 }
-                buttonScientificAid.setEnabled(true);
-                buttonArmyAid.setEnabled(true);
                 return false;
             }
         });
         buttonArmyAid.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    //блокировка других аптечек во избежание одновременного нажатия
-                    buttonScientificAid.setEnabled(false);
-                    buttonSmallAid.setEnabled(false);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    bloodAfterDamage = bloodAfterDamage + 2;
-                    redrawingBloodBar();
+                try {
+                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                        //блокировка других аптечек во избежание одновременного нажатия
+                        buttonScientificAid.setEnabled(false);
+                        buttonSmallAid.setEnabled(false);
+                    } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                        bloodAfterDamage = bloodAfterDamage + 2;
+                        redrawingBloodBar();
+                    }
+                    buttonScientificAid.setEnabled(true);
+                    buttonSmallAid.setEnabled(true);
+                } catch (Exception e) {
                 }
-                buttonScientificAid.setEnabled(true);
-                buttonSmallAid.setEnabled(true);
                 return false;
             }
         });
         buttonScientificAid.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    //блокировка других аптечек во избежание одновременного нажатия
-                    buttonSmallAid.setEnabled(false);
-                    buttonArmyAid.setEnabled(false);
-                } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-                    bloodAfterDamage = bloodAfterDamage + 3;
-                    redrawingBloodBar();
-                    radiation = radiation + 4;
-                    redrawingRadiationBar();
+                try {
+
+                    if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                        //блокировка других аптечек во избежание одновременного нажатия
+                        buttonSmallAid.setEnabled(false);
+                        buttonArmyAid.setEnabled(false);
+                    } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+                        bloodAfterDamage = bloodAfterDamage + 3;
+                        redrawingBloodBar();
+                        radiation = radiation + 4;
+                        redrawingRadiationBar();
+                    }
+                    buttonSmallAid.setEnabled(true);
+                    buttonArmyAid.setEnabled(true);
+                } catch (Exception e) {
                 }
-                buttonSmallAid.setEnabled(true);
-                buttonArmyAid.setEnabled(true);
                 return false;
             }
         });
