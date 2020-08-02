@@ -86,70 +86,70 @@
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood2"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood3"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood4"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood5"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood6"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood7"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood8"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood9"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
                     <TextView
                             android:id="@+id/pointBlood10"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_blood"
+                            android:background="@drawable/style_points_blood_on"
                     />
 
 
@@ -161,74 +161,74 @@
                         android:layout_marginTop="10dp"
                         android:id="@+id/containerRadiation">
                     <TextView
-                            android:id="@+id/radiation1"
+                            android:id="@+id/pointRadiation1"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
                     />
                     <TextView
-                            android:id="@+id/radiation2"
+                            android:id="@+id/pointRadiation2"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
                     />
                     <TextView
-                            android:id="@+id/radiation3"
+                            android:id="@+id/pointRadiation3"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
                     />
                     <TextView
-                            android:id="@+id/radiation4"
+                            android:id="@+id/pointRadiation4"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
                     />
                     <TextView
-                            android:id="@+id/radiation5"
+                            android:id="@+id/pointRadiation5"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
                     />
                     <TextView
-                            android:id="@+id/radiation6"
+                            android:id="@+id/pointRadiation6"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
                     />
                     <TextView
-                            android:id="@+id/radiation7"
+                            android:id="@+id/pointRadiation7"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
                     />
                     <TextView
-                            android:id="@+id/radiation8"
+                            android:id="@+id/pointRadiation8"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
                     />
                     <TextView
-                            android:id="@+id/radiation9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
-                    />
-                    <TextView
-                            android:id="@+id/radiation10"
+                            android:id="@+id/pointRadiation9"
                             android:layout_width="wrap_content"
                             android:layout_height="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/style_points_radiation"
+                            android:background="@drawable/style_points_radiation_on"
+                    />
+                    <TextView
+                            android:id="@+id/pointRadiation10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/style_points_radiation_on"
                     />
 
                 </LinearLayout>
@@ -256,6 +256,36 @@
                 android:layout_height="match_parent"
                 android:id="@+id/containerBackpack"
                 android:layout_weight="1">
+            <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/scientificAid"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:background="#BD164F"
+                    android:textSize="30sp"
+                    android:textColor="#FFFFFF"
+                    android:text="scientific aidkit 100% 100%"/>
+            <Button
+                    android:text="army aidkit 100%"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/armyAid"
+                    android:background="#BD164F"
+                    android:layout_marginTop="10dp"
+                    android:textSize="30sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1"/>
+            <Button
+                    android:text="small aidkit 50%"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/smallAid"
+                    android:layout_weight="1"
+                    android:layout_marginTop="10dp"
+                    android:background="#BD164F"
+                    android:textSize="30sp"
+                    android:textColor="#FFFFFF"/>
         </LinearLayout>
 
     </LinearLayout>
