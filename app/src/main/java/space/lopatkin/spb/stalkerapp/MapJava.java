@@ -10,32 +10,47 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MapJava extends AppCompatActivity {
 
+    private static final int LayoutUI = R.layout.activity_map;
+    private Button buttonBack;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_map);
+        setContentView(LayoutUI);
 
-        //убирает строку состояния батареи в приложении и тд
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        statusBarOFF();
 
         //кнопка назад
-        Button buttonBack = (Button) findViewById(R.id.buttonBack);
+        buttonBack = (Button) findViewById(R.id.buttonBack);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    Intent intent = new Intent(MapJava.this, MenuJava.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception e) {
-                }
+                openMainMenu();
             }
         });
 
 
 
+    }
+
+
+
+    private void openMainMenu() {
+        try {
+            Intent intent = new Intent(MapJava.this, MenuJava.class);
+            startActivity(intent);
+            finish();
+        } catch (Exception e) {
+        }
+    }
+
+    private void statusBarOFF() {
+        //убирает строку состояния батареи в приложении и тд
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
 

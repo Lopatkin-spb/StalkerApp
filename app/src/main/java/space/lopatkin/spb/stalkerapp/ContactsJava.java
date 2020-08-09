@@ -10,32 +10,45 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ContactsJava extends AppCompatActivity {
 
+    private static final int LayoutUI = R.layout.activity_contacts;
+    private Button buttonBack;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contacts);
+        setContentView(LayoutUI);
 
-        //убирает строку состояния батареи в приложении и тд
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        statusBarOFF();
 
         //кнопка назад
-        Button buttonBack = (Button) findViewById(R.id.buttonBack);
+        buttonBack = (Button) findViewById(R.id.buttonBack);
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    Intent intent = new Intent(ContactsJava.this, MenuJava.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception e) {
-                }
+                openMainMenu();
             }
         });
 
 
 
+    }
+
+
+    private void openMainMenu() {
+        try {
+            Intent intent = new Intent(ContactsJava.this, MenuJava.class);
+            startActivity(intent);
+            finish();
+        } catch (Exception e) {
+        }
+    }
+
+    private void statusBarOFF() {
+        //убирает строку состояния батареи в приложении и тд
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
 

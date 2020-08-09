@@ -11,36 +11,45 @@ import android.os.Bundle;
 
 public class EnterJava extends AppCompatActivity {
 
+    private static final int LayoutUI = R.layout.activity_enter;
+    private Button buttonStart;
     private long backPressedTime;
     private Toast backToast;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_enter);
+        setContentView(LayoutUI);
 
-        //убирает строку состояния батареи в приложении и тд
-        Window w = getWindow();
-        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        statusBarOFF();
 
         //кнопка входа
-        Button buttonStart = (Button) findViewById(R.id.buttonStart);
+        buttonStart = (Button) findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    Intent intent = new Intent(EnterJava.this, MenuJava.class);
-                    startActivity(intent);
-                    finish();
-                } catch (Exception e) {
-                }
+                openMainMenu();
             }
         });
 
 
+    }
+
+
+    private void openMainMenu() {
+        try {
+            Intent intent = new Intent(EnterJava.this, MenuJava.class);
+            startActivity(intent);
+            finish();
+        } catch (Exception e) {
+        }
+    }
+
+    private void statusBarOFF() {
+        //убирает строку состояния батареи в приложении и тд
+        Window w = getWindow();
+        w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     //системная (телефонная) кнопка назад
