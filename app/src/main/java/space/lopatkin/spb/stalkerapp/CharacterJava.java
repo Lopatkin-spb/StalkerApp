@@ -9,26 +9,61 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import space.lopatkin.spb.stalkerapp.utils.ThreadAsyncTask;
+
 
 public class CharacterJava extends AppCompatActivity {
 
-    private static final int LAYOUT = R.layout.activity_character;
+    private static final int LayoutUI = R.layout.activity_character;
     private Button buttonBack;
+    private Button buttonSmallAid;
+    private Button buttonScientificAid;
+    private Button buttonArmyAid;
+    public static TextView resultView;
+    private String data = "small_aidkit";
 
-    //damage blood от 0 до 10
-    //ввести урон для теста
-    int damage = 7;
-    //int bloodAfterDamage = 10 - damage;
+    private ThreadAsyncTask threadAsyncTask = new ThreadAsyncTask();
+
+
+    private String getMessage = new String();
+
+
+
+
     int bloodAfterDamage = 0;
     int counterBlood = 0;
     int radiation = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(LAYOUT);
+        setContentView(LayoutUI);
+
+        buttonSmallAid = (Button) findViewById(R.id.smallAid);
+        buttonScientificAid = (Button) findViewById(R.id.scientificAid);
+        buttonArmyAid = (Button) findViewById(R.id.armyAid);
+        resultView = (TextView) findViewById(R.id.resultView);
+
+        //test
+        Button testSocketAsyncThread = (Button) findViewById(R.id.testSocketAsyncThread);
+        testSocketAsyncThread.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestToServer();
+            }
+        });
+        Button testSocketClass = (Button) findViewById(R.id.testSocketClass);
+        testSocketClass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                resultView.setText("пустое действие");
+            }
+        });
+
 
         //навигация
         statusBarOFF();
@@ -38,45 +73,17 @@ public class CharacterJava extends AppCompatActivity {
         redrawingRadiationBar();
         aidkits();
 
+
     }
 
 
-    private void createAndShowDialogWindow() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(CharacterJava.this);
-        builder.setTitle("Диалоговое окно")
-                .setMessage("Использовать предмет?")
-                .setCancelable(false)
-                .setNeutralButton("Выбросить", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-//прописать действие
-                    }
-                })
-                .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-//прописать действие
-                    }
-                })
-                .setPositiveButton("Использовать", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        try {
-                            redrawingBloodBar();
-                            redrawingRadiationBar();
-                        } catch (Exception e) {
-                        }
-                    }
-                });
-        AlertDialog dialog = builder.create();
-        dialog.show();
+    private void requestToServer() {
+        threadAsyncTask = new ThreadAsyncTask();
+        threadAsyncTask.execute(data);
     }
 
 
     private void aidkits() {
-        final Button buttonSmallAid = (Button) findViewById(R.id.smallAid);
-        final Button buttonScientificAid = (Button) findViewById(R.id.scientificAid);
-        final Button buttonArmyAid = (Button) findViewById(R.id.armyAid);
 
         buttonSmallAid.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -89,6 +96,7 @@ public class CharacterJava extends AppCompatActivity {
                     } else if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
                         //отрисовка жизни после отрыва пальца от картинки
                         bloodAfterDamage = bloodAfterDamage + 1;
+                        //messageToSocket = "small aidkit";
                         createAndShowDialogWindow();
                     }
                     //разблокировка залоченных елементов
@@ -198,6 +206,49 @@ public class CharacterJava extends AppCompatActivity {
     }
 
 
+    private void createAndShowDialogWindow() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CharacterJava.this);
+        builder.setTitle("Диалоговое окно")
+                .setMessage("Использовать предмет?")
+                .setCancelable(false)
+                .setNeutralButton("Выбросить", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+//прописать действие
+                    }
+                })
+                .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+//прописать действие
+                    }
+                })
+                .setPositiveButton("Использовать", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        try {
+                            //onOpenClick();
+                            threadAsyncTask = new ThreadAsyncTask();
+                            threadAsyncTask.execute(data);
+
+                            //send();
+
+                            //test
+                            Toast toast = Toast.makeText(getApplicationContext(),
+                                    "ответ сервера - " + getMessage, Toast.LENGTH_LONG);
+                            toast.show();
+
+                            redrawingBloodBar();
+                            redrawingRadiationBar();
+                        } catch (Exception e) {
+                        }
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
     private void backToMainMenuButton() {
         //кнопка назад в меню
         buttonBack = (Button) findViewById(R.id.buttonBack);
@@ -214,8 +265,9 @@ public class CharacterJava extends AppCompatActivity {
         });
     }
 
+
     private void statusBarOFF() {
-        //убирает строку состояния батареи в приложении и тд
+        //убирает строку состояния батареи и тд в приложении
         Window w = getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -232,6 +284,9 @@ public class CharacterJava extends AppCompatActivity {
         } catch (Exception e) {
         }
     }
+
+
+
 
 
 }

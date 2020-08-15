@@ -247,8 +247,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/containerThings"
-                android:layout_weight="1">
-        </LinearLayout>
+                android:layout_weight="1"/>
 
         <LinearLayout
                 android:orientation="vertical"
@@ -256,6 +255,31 @@
                 android:layout_height="match_parent"
                 android:id="@+id/containerBackpack"
                 android:layout_weight="1">
+            <TextView
+                    android:text="resultView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/resultView" android:layout_weight="1"
+                    android:textColor="#130B0C" android:textSize="14sp" android:background="#F5EFEF"/>
+            <Button
+                    android:text="test socket class"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/testSocketClass"
+                    android:background="#1627BD"
+                    android:layout_marginTop="10dp"
+                    android:textSize="30sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1"/>
+            <Button
+                    android:text="test socket async thread"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/testSocketAsyncThread"
+                    android:background="#1627BD"
+                    android:layout_marginTop="10dp"
+                    android:textSize="30sp"
+                    android:textColor="#FFFFFF"
+                    android:layout_weight="1"/>
             <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
